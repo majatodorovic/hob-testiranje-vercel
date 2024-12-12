@@ -1,0 +1,40 @@
+export const company_data = {
+  default: {
+    name: process.env["NAME"],
+    telephone: process.env["TELEPHONE"],
+    email: process.env["EMAIL"],
+    street_address: process.env["STREET_ADDRESS"],
+    city: process.env["CITY"],
+    postal_code: process.env["POSTAL_CODE"],
+    address_country: process.env["ADDRESS_COUNTRY"],
+  },
+  stores: [
+    {
+      name: "HOB SHOP 1 Čačak",
+      telephone: "032 365 935",
+      email: "info@hobbrandgroup.rs",
+      street_address: "Sinđelićeva 25, lokal 8",
+      city: "Čačak",
+      postal_code: "32000",
+      address_country: "Srbija",
+    },
+    {
+      name: "Hair&Beauty shop Kragujevac",
+      telephone: "034 258 158",
+      email: "info@hobbrandgroup.rs",
+      street_address: "Svetozara Markovića 68/1",
+      city: "Kragujevac",
+      postal_code: "34000",
+      address_country: "Srbija",
+    },
+    {
+      name: "Hair&Beauty shop Užice",
+      telephone: "031 310 51 98",
+      email: "info@hobbrandgroup.rs",
+      street_address: "Nikole Pašića 39",
+      city: "Užice",
+      postal_code: "31000",
+      address_country: "Srbija",
+    },
+  ],
+};
