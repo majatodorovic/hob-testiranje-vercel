@@ -638,7 +638,7 @@ export const useProductThumb = ({ slug, id, categoryId = "*" }) => {
 };
 
 export const useProductSticker = ({ slug, id }) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["productThumb", id ? id : null],
     queryFn: async () => {
       return await GET(`/product-details/gallery/${slug}`).then((res) => {
