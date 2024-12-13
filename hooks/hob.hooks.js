@@ -624,7 +624,7 @@ export const useProduct = ({ slug, id }) => {
 };
 
 export const useProductThumb = ({ slug, id, categoryId = "*" }) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["productThumb", id ? id : null],
     queryFn: async () => {
       return await GET(
