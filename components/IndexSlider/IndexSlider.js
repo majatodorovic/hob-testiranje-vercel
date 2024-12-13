@@ -36,7 +36,7 @@ const IndexSlider = ({ banners, mobileBanners }) => {
           delay: 3500,
         }}
         slidesPerView={1}
-        className={`!pb-10 sm:!pb-20 lg:!pb-[8.5rem] 2xl:!pb-[3.5rem] ${is_mobile ? '!hidden' : '!block'}`}
+        className={`!pb-10 sm:!pb-20 lg:!pb-[8.5rem] 2xl:!pb-[3.5rem] !hidden !md:block`}
       >
         {banners?.map((banner, index) => {
           return (
@@ -125,7 +125,7 @@ const IndexSlider = ({ banners, mobileBanners }) => {
           delay: 3500,
         }}
         slidesPerView={1}
-        className={`!pb-10 sm:!pb-20 lg:!pb-[8.5rem] 2xl:!pb-[3.5rem] ${!is_mobile ? '!hidden' : '!block'}`}
+        className={`!pb-10 sm:!pb-20 lg:!pb-[8.5rem] 2xl:!pb-[3.5rem] !block !md:hidden`}
       >
         {mobileBanners?.map((banner, index) => {
           return (

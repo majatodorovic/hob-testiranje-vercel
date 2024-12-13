@@ -20,11 +20,10 @@ import { useCartContext } from "@/app/api/cartContext";
 
 //hook za prepoznavanje mobilnih uredjaja, vraca true ili false
 export const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
-      console.log("Širina prozora:", window.innerWidth, "| Da li je mobilni:", isMobile);
     };
     window.addEventListener("resize", handleResize);
     handleResize();
@@ -32,7 +31,6 @@ export const useIsMobile = () => {
   }, []);
   return isMobile;
 };
-
 
 //hook za debouncing (za search), na svaki input se resetuje timer i tek kad se neko vreme ne unosi nista se poziva funkcija
 export const useDebounce = (value, delay) => {
