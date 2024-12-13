@@ -743,17 +743,14 @@ export const useSummary = ({ formData, delivery }) => {
   return useQuery({
     queryKey: ["summary", delivery],
     queryFn: async () => {
-      if (!delivery) throw new Error("Delivery is required");
-      return await FETCH(/checkout/summary, {
+      return await FETCH(`/checkout/summary`, {
         ...formData,
       }).then((res) => res?.payload);
     },
     refetchOnWindowFocus: false,
     refetchOnMount: true,
-    placeholderData: { total: 0, discounts: [] },
   });
 };
-
 
 //hook za dobijanje info o porudzbini, proslediti order_token
 export const useOrder = ({ order_token }) => {
