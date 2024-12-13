@@ -612,7 +612,7 @@ export const useCategoryProducts = ({
 
 //hook za dobijanje proizvoda na detaljnoj strani
 export const useProduct = ({ slug, id }) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["productBasicData", id ? id : null],
     queryFn: async () => {
       return await GET(`/product-details/basic-data/${slug}`).then((res) => {
