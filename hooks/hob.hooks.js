@@ -624,7 +624,7 @@ export const useProduct = ({ slug, id }) => {
 };
 
 export const useProductThumb = ({ slug, id, categoryId = "*" }) => {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ["productThumb", id ? id : null],
     queryFn: async () => {
       return await GET(
@@ -638,7 +638,7 @@ export const useProductThumb = ({ slug, id, categoryId = "*" }) => {
 };
 
 export const useProductSticker = ({ slug, id }) => {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ["productThumb", id ? id : null],
     queryFn: async () => {
       return await GET(`/product-details/gallery/${slug}`).then((res) => {
@@ -740,17 +740,20 @@ export const useCheckout = ({ formData, setPostErrors, setLoading }) => {
 
 //hook za dobijanje info o cenama,popustima itd u korpi
 export const useSummary = ({ formData, delivery }) => {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ["summary", delivery],
     queryFn: async () => {
-      return await FETCH(`/checkout/summary`, {
+      if (!delivery) throw new Error("Delivery is required");
+      return await FETCH(/checkout/summary, {
         ...formData,
       }).then((res) => res?.payload);
     },
     refetchOnWindowFocus: false,
     refetchOnMount: true,
+    placeholderData: { total: 0, discounts: [] },
   });
 };
+
 
 //hook za dobijanje info o porudzbini, proslediti order_token
 export const useOrder = ({ order_token }) => {
