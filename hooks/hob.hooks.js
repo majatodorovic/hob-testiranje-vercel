@@ -740,7 +740,7 @@ export const useCheckout = ({ formData, setPostErrors, setLoading }) => {
 
 //hook za dobijanje info o cenama,popustima itd u korpi
 export const useSummary = ({ formData, delivery }) => {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["summary", delivery],
     queryFn: async () => {
       return await FETCH(`/checkout/summary`, {
